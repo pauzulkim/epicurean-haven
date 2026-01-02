@@ -5,6 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>epicurean-haven</title>
+    <script>
+      // Auto-redirect jika ada path tanpa hash
+      if (window.location.pathname !== '/' && !window.location.hash) {
+        window.location.href = '/#' + window.location.pathname;
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

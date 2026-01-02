@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'; // KEEP THIS
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { ProductProvider } from './context/ProductContext';
@@ -17,8 +17,9 @@ import './styles/App.scss';
 import './styles/variables.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Komponen wrapper untuk conditional layout
-const AppLayout = () => {
+// HAPUS AppLayout component, gabung langsung ke App
+
+function App() {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -36,35 +37,26 @@ const AppLayout = () => {
   const shouldShowLayout = !hideLayoutRoutes.includes(currentPath) && !isAdminDashboard;
 
   return (
-    <div className="App">
-      {/* Conditional Navbar */}
-      {shouldShowLayout && <Navbar />}
-      
-      <main className={`main-content ${!shouldShowLayout ? 'no-layout' : ''}`}>
-        <AppRoutes />
-      </main>
-      
-      {/* Conditional Footer */}
-      {shouldShowLayout && <Footer />}
-      
-      {/* BackToTop - show everywhere except admin pages */}
-      {shouldShowLayout && <BackToTop />}
-    </div>
-  );
-};
-
-// Main App Component
-function App() {
-  return (
-    <Router>
-      <AuthProvider>
-        <ProductProvider>
-          <CartProvider>
-            <AppLayout />
-          </CartProvider>
-        </ProductProvider>
-      </AuthProvider>
-    </Router>
+    <AuthProvider>
+      <ProductProvider>
+        <CartProvider>
+          <div className="App">
+            {/* Conditional Navbar */}
+            {shouldShowLayout && <Navbar />}
+            
+            <main className={`main-content ${!shouldShowLayout ? 'no-layout' : ''}`}>
+              <AppRoutes />
+            </main>
+            
+            {/* Conditional Footer */}
+            {shouldShowLayout && <Footer />}
+            
+            {/* BackToTop - show everywhere except admin pages */}
+            {shouldShowLayout && <BackToTop />}
+          </div>
+        </CartProvider>
+      </ProductProvider>
+    </AuthProvider>
   );
 }
 
