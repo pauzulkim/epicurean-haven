@@ -5,7 +5,13 @@
     <link rel="icon" type="image/svg+xml" href="/epicurean-haven/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>epicurean-haven</title>
-    <script type="module" crossorigin src="/epicurean-haven/assets/index-DfYvnrfu.js"></script>
+    <script>
+      // Auto-redirect jika ada path tanpa hash
+      if (window.location.pathname !== '/' && !window.location.hash) {
+        window.location.href = '/#' + window.location.pathname;
+      }
+    </script>
+    <script type="module" crossorigin src="/epicurean-haven/assets/index-Ws0LWjZi.js"></script>
     <link rel="stylesheet" crossorigin href="/epicurean-haven/assets/index-DpmLdenI.css">
   </head>
   <body>
