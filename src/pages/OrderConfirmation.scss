@@ -323,6 +323,7 @@
       }
     }
 
+    /* FIXED ACTION BUTTONS - CAPSULE STYLE */
     .action-buttons {
       display: flex;
       flex-direction: column;
@@ -330,14 +331,21 @@
       margin: 30px 0;
 
       .btn {
-        padding: 15px;
-        border-radius: var(--radius-lg);
+        padding: 15px 25px;
+        border-radius: 50px; /* CAPSULE SHAPE */
         font-weight: 600;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 12px;
         transition: all var(--transition-normal);
+        text-decoration: none;
+        text-align: center;
+        min-height: 56px;
+        font-size: 1.1rem;
+        border: 2px solid transparent;
+        cursor: pointer;
+        width: 100%;
 
         &.btn-primary {
           background: linear-gradient(45deg, var(--primary-brown), var(--secondary-brown));
@@ -345,8 +353,8 @@
           border: none;
 
           &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.4);
           }
         }
 
@@ -358,6 +366,7 @@
           &:hover {
             background: var(--accent-gold);
             color: white;
+            transform: translateY(-2px);
           }
         }
 
@@ -369,7 +378,19 @@
           &:hover {
             background: #666;
             color: white;
+            transform: translateY(-2px);
           }
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          width: 100%;
+          height: 100%;
+          color: inherit;
+          text-decoration: none;
         }
       }
     }
@@ -486,6 +507,14 @@
     .row {
       flex-direction: column;
     }
+    
+    .action-buttons {
+      .btn {
+        padding: 14px 20px;
+        font-size: 1rem;
+        min-height: 52px;
+      }
+    }
   }
 }
 
@@ -508,8 +537,10 @@
 
     .action-buttons {
       .btn {
-        font-size: 0.9rem;
-        padding: 12px;
+        font-size: 0.95rem;
+        padding: 12px 18px;
+        min-height: 48px;
+        gap: 8px;
       }
     }
   }

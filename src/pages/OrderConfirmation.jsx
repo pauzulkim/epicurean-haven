@@ -247,16 +247,16 @@ const OrderConfirmation = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons - FIXED */}
               <div className="action-buttons">
                 <button className="btn btn-primary" onClick={() => window.print()}>
                   <FontAwesomeIcon icon={faPrint} />
                   Print Receipt
                 </button>
-                <Link to="/products" className="btn btn-secondary">
+                <button className="btn btn-secondary" onClick={() => navigate('/products')}>
                   <FontAwesomeIcon icon={faShoppingBag} />
                   Continue Shopping
-                </Link>
+                </button>
                 <button className="btn btn-outline">
                   <FontAwesomeIcon icon={faEnvelope} />
                   Email Receipt
